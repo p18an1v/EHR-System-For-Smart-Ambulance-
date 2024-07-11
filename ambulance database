@@ -1,0 +1,201 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.73-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema ambulancet
+--
+
+CREATE DATABASE IF NOT EXISTS ambulancet;
+USE ambulancet;
+
+--
+-- Definition of table `doctor`
+--
+
+DROP TABLE IF EXISTS `doctor`;
+CREATE TABLE `doctor` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `mobile` varchar(45) NOT NULL,
+  `gender` varchar(45) NOT NULL,
+  `hn` varchar(45) NOT NULL,
+  `spec` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `long_` varchar(45) NOT NULL,
+  `lat_` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctor`
+--
+
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` (`id`,`name`,`mobile`,`gender`,`hn`,`spec`,`address`,`long_`,`lat_`) VALUES 
+ (1,'supriya','8856915463','female','sai hospitals','B.D','Pune','73.927976','18.562350'),
+ (2,'kk','8856915463','female','oi','B.D','SAGAR PARK LANE NO 3',' 73.933496','18.558412');
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
+
+
+--
+-- Definition of table `patient`
+--
+
+DROP TABLE IF EXISTS `patient`;
+CREATE TABLE `patient` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uname` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `passwd` varchar(45) NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `bgp` varchar(45) DEFAULT NULL,
+  `age` varchar(45) DEFAULT NULL,
+  `height` varchar(45) DEFAULT NULL,
+  `weight` varchar(45) DEFAULT NULL,
+  `bmi` varchar(45) DEFAULT NULL,
+  `temp` varchar(45) DEFAULT NULL,
+  `pr` varchar(45) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
+  `rr` varchar(45) DEFAULT NULL,
+  `bp` varchar(45) DEFAULT NULL,
+  `imgpath` varchar(45) DEFAULT NULL,
+  `IrisSignature` blob,
+  `hashkey` varchar(45) DEFAULT NULL,
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patient`
+--
+
+/*!40000 ALTER TABLE `patient` DISABLE KEYS */;
+INSERT INTO `patient` (`id`,`uname`,`email`,`phone`,`address`,`passwd`,`type`,`gender`,`bgp`,`age`,`height`,`weight`,`bmi`,`temp`,`pr`,`rr`,`bp`,`imgpath`,`IrisSignature`,`hashkey`,`status`) VALUES 
+ (1,'vishal@gmail.com','vishal@gmail.com','8989898989','NARHE','Vishal@123','Patient','male','B+','29','5.7','72','healthy','50',0x3635,'300','ideal','',0x464D5200203230000000010E0000013C016200C500C5010000002828408E00FAAC6480CC00E8176480C001281F5D404B00DDB064405A0131BD574098014924214038010F313C40FD0109FC5D80E201480F5D404101473528804A00822F6440CA006A1E644036007BB5644047005F3364409501002764408701242C6440BE00B51B6480C401361E57408B01472A2140730146BF0740E30139025D803A01282F2180F1013B8C5D80990076266440F00081095D8116014B732141280135D043406900DB2D64408D00BB266440AC0141A549406501352D57407401452B2F8045012FB457405F009A2C64410600EB045D403B0139BD28403500A13564412500E2834380E8006C10644083004C31640000,NULL,'1');
+/*!40000 ALTER TABLE `patient` ENABLE KEYS */;
+
+
+--
+-- Definition of table `police_hospital`
+--
+
+DROP TABLE IF EXISTS `police_hospital`;
+CREATE TABLE `police_hospital` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `p_name` varchar(45) NOT NULL,
+  `head_name` varchar(45) NOT NULL,
+  `mobile` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `long_` varchar(45) NOT NULL,
+  `lat_` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `police_hospital`
+--
+
+/*!40000 ALTER TABLE `police_hospital` DISABLE KEYS */;
+INSERT INTO `police_hospital` (`id`,`p_name`,`head_name`,`mobile`,`email`,`address`,`long_`,`lat_`,`status`) VALUES 
+ (1,'Shivaji Nagar Police Station','Arjun Sharma','7057642082','arjun@gmail.com','Vikas mitr mandal, Shivaji Nagar ','73.932424','18.560850','0'),
+ (2,'j','j','7057642082','nimbhorepramod4u@gmail.com','sancheti hospital','73.929922','18.559244','0'),
+ (3,'sai hospitals','jivan','7057642082','jivan@gmail.com','Shivaji Nagar, Pune','73.928913','18.549233','1'),
+ (4,'pramod1','kk','9834455871','a@gmail.com','police station shivaji nagar','73.929913','18.559233','1'),
+ (5,'p','sneha','7057642082','rina@gmail.com','Mumbai','10','10','1'),
+ (6,'P','priya','7057642082','moni@gmail.com','Mumbai','10','20','1'),
+ (7,'Rina','Rina','7057642082','mayuri@gmail.com','Mumbai','18.5566394','73.917462','1'),
+ (8,'PUNE','priya','7057642082','mayuri@gmail.com','Mumbai','18.5587041','73.9180199','1'),
+ (9,'PUNE','RUCHITA','7057642082','moni@gmail.com','Mumbai','18.4899341','73.8027403','1'),
+ (10,'Sunchi','Rina','7057642082','moni@gmail.com','Mumbai','18.4899341','73.8027403','0'),
+ (11,'PUNE','Kirti','7057642082','kirti@gmail.com','Mumbai','18.5628951','73.9264783','1'),
+ (12,'Chandan Nagar','Supriti','7057642082','supriti@gmail.com','Pune','18.5611915','73.9244076','0'),
+ (13,'Sai Hospital','jivan','7057642082','jivan@gmail.com','Shivaji Nagar, Pune','73.928913','18.549233','1'),
+ (14,'PUNE','dswd','9420302567','mayuri@gmail.com','camp','73.8027403','18.4899341','1'),
+ (15,'tgdr','Supriti','7020430883','moni@gmail.com','Shivaji Nagar, Pune','73.8027403','18.4899341','0'),
+ (16,'lifeline','shubham','9921333909','dhireshubham9921@gmail.com','pune',' 73.989360','18.582941','1'),
+ (17,'Care Hospital','Priya','9834455871','priya@gmail.com','Pune',' 73.986212','18.583947','1'),
+ (18,'Narhe','Sable','9898989898','sable@gmail.com','Narhe, Pune.',' 73.823631','18.441900','0'),
+ (19,'Poona Hospital','Vijay','8989898989','poona@gmail.com','Sambhajinagar',' 73.841660','18.517557','1');
+/*!40000 ALTER TABLE `police_hospital` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tbl_location`
+--
+
+DROP TABLE IF EXISTS `tbl_location`;
+CREATE TABLE `tbl_location` (
+  `bin_id` int(10) unsigned NOT NULL,
+  `latitude` varchar(45) NOT NULL,
+  `longitude` varchar(45) NOT NULL,
+  `area` varchar(45) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`bin_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_location`
+--
+
+/*!40000 ALTER TABLE `tbl_location` DISABLE KEYS */;
+INSERT INTO `tbl_location` (`bin_id`,`latitude`,`longitude`,`area`,`status`) VALUES 
+ (111,'18.562350','73.927976','Tata Guard Room','0'),
+ (112,'18.563169','73.933029','Chandan Nagar','1'),
+ (113,'18.567359','73.947793','Aple Ghar','2'),
+ (114,'18.562126','73.923298','Pachva mail','1'),
+ (115,'18.561928','73.889406','Yerwada jel','2'),
+ (116,'18.561192','73.920235','Inorbit mall','1');
+/*!40000 ALTER TABLE `tbl_location` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tbl_vehicle_info`
+--
+
+DROP TABLE IF EXISTS `tbl_vehicle_info`;
+CREATE TABLE `tbl_vehicle_info` (
+  `sr` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `temp` varchar(45) NOT NULL,
+  `accident` varchar(45) NOT NULL,
+  `latitude` varchar(45) NOT NULL,
+  `longitude` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`sr`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_vehicle_info`
+--
+
+/*!40000 ALTER TABLE `tbl_vehicle_info` DISABLE KEYS */;
+INSERT INTO `tbl_vehicle_info` (`sr`,`temp`,`accident`,`latitude`,`longitude`,`status`) VALUES 
+ (1,'18.56','73.96','0','nan','1');
+/*!40000 ALTER TABLE `tbl_vehicle_info` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
